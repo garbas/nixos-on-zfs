@@ -25,7 +25,11 @@
     poetry2nix,
     pre-commit-hooks,
   }:
-    flake-utils.lib.eachSystem [flake-utils.lib.system.x86_64-linux] (
+    flake-utils.lib.eachSystem
+    [
+      flake-utils.lib.system.x86_64-linux
+      flake-utils.lib.system.aarch64-linux
+    ] (
       system: let
         overlays = [
           poetry2nix.overlay
